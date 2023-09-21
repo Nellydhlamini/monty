@@ -7,16 +7,16 @@
   */
 FILE *open_file(char *filename)
 {
-FILE *fd = NULL;
+FILE *file_d = NULL;
 
 check_access_rights(filename);
 
-fd = fopen(filename, "r");
+file_d = fopen(filename, "r");
 
-if (!fd)
+if (!file_d)
 {
-fprintf(stderr, "Error: Can't open file %s\n", filename);
+fprintf(stderr, "Error: Couldn't open file %s\n", filename);
 exit(EXIT_FAILURE);
 }
-return (fd);
+return (file_d);
 }
