@@ -13,7 +13,7 @@ check_access_rights(filename);
 
 fd = fopen(filename, "r");
 
-if (fd)
+if (!fd)
 {
 fprintf(stderr, "Error: Can't open file %s\n", filename);
 exit(EXIT_FAILURE);
