@@ -68,11 +68,11 @@ typedef struct instruction_s
 
 extern stack_t *head;
 
-void check_args_num(int argn);
+void check_args_num(int args);
 FILE *open_file(char *filename);
 void check_access_rights(char *filename);
-int check_push_param(char *param);
-int check_digits(char *s);
+int check_push_param(char *parameter);
+int check_digits(char *str);
 void frees_stack(void);
 int handle_execution(char *op_code, char *op_param, unsigned int line, int m);
 void handle_error(int errno, char *opcode, unsigned int line, char *buff);
