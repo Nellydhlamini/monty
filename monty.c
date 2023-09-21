@@ -1,51 +1,51 @@
 #include "monty.h"
 
-stack_t *head = NULL;
-
 /**
   * main - The Monty Interpreter entry point
   * @argn: The args number
   * @args: The args passed to the interpreter
   * Return: Always zero
   */
+stack_t *head = NULL;
+
 int main(int argn, char *args[])
 {
-FILE *fd = NULL;
-size_t line_len = 0;
-unsigned int line_num = 1;
+FILE *file_d = NULL;
 int readed = 0, op_status = 0;
-char *filename = NULL, *op_code = NULL, *op_param = NULL, *buff = NULL;
+char *filename = NULL, *op_code = NULL, *op_parameter = NULL, *buffer = NULL;
+size_t length = 0;
+unsigned int no_line = 1;
 
-filename = args[1];
+file_d = open_file(filename);
 check_args_num(argn);
-fd = open_file(filename);
+filename = args[1];
 
-while ((readed = getline(&buff, &line_len, fd)) != -1)
+while ((readed = getline(&buffer, &length, file_d)) != -1)
 {
-op_code = strtok(buff, "\t\n ");
+op_code = strtok(buffer, "\t\n ");
 if (op_code)
 {
 if (op_code[0] == '#')
 {
-++line_num;
+++no_line;
 continue;
 }
 
-op_param = strtok(NULL, "\t\n ");
-op_status = handle_execution(op_code, op_param, line_num, op_status);
+op_parameter = strtok(NULL, "\t\n ");
+op_status = handle_execution(op_code, op_parameter, no_line, op_status);
 
 if (op_status >= 100 && op_status < 300)
 {
-fclose(fd);
-handle_error(op_status, op_code, line_num, buff);
+fclose(file_d);
+handle_error(op_status, op_code, no_line, buffer);
 }
 }
 
-++line_num;
+++no_line;
 }
 
 frees_stack();
-free(buff);
-fclose(fd);
+free(buffer);
+fclose(file_d);
 return (0);
 }
