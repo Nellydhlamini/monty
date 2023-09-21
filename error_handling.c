@@ -6,9 +6,9 @@
   * @opcode: The operation code to manage
   * @line: The line on which the error occurred
   * @buff: The reserved error line buffer
-  * Return: Nothing
+  * Return: void
   */
-void handle_error(int errno, char *opcode, unsigned int line, char *buff)
+void handle_error(int errno, char *opcode, unsigned int line, char *buffer)
 {
 if (errno >= 100 && errno < 200)
 handle_cerror(errno, opcode, line);
@@ -21,8 +21,8 @@ return;
 
 frees_stack();
 
-if (buff)
-free(buff);
+if (buffer)
+free(buffer);
 
 exit(EXIT_FAILURE);
 }
@@ -32,7 +32,7 @@ exit(EXIT_FAILURE);
   * @errno: The error code to manage
   * @opcode: The operation code to manage
   * @line: The line on which the error occurred
-  * Return: Nothing
+  * Return: void
   */
 void handle_cerror(int errno, char *opcode, unsigned int line)
 {
@@ -53,7 +53,7 @@ break;
   * handle_uerror - Manages interpreter usage errors
   * @errno: The error code to manage
   * @line: The line on which the error occurred
-  * Return: Nothing
+  * Return: void
   */
 void handle_uerror(int errno, unsigned int line)
 {
@@ -101,7 +101,7 @@ break;
   * handle_more_uerror - Manages interpreter usage errors
   * @errno: The error code to manage
   * @line: The line on which the error occurred
-  * Return: Nothing
+  * Return: void
   */
 void handle_more_uerror(int errno, unsigned int line)
 {

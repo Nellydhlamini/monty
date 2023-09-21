@@ -75,7 +75,7 @@ int check_push_param(char *parameter);
 int check_digits(char *str);
 void frees_stack(void);
 int handle_execution(char *op_code, char *op_param, unsigned int line, int m);
-void handle_error(int errno, char *opcode, unsigned int line, char *buff);
+void handle_error(int errno, char *opcode, unsigned int line, char *buffer);
 void handle_cerror(int errno, char *opcode, unsigned int line);
 void handle_uerror(int errno, unsigned int line);
 void handle_more_uerror(int errno, unsigned int line);
