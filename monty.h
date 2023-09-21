@@ -12,6 +12,7 @@
 #define ERR_BAD_INST	100
 #define ERR_BAD_MALL	101
 #define ERR_INVLD_PARM	102
+#define  _POSIX_C_SOURCE 200809L
 
 /* Usage Errors */
 #define ERR_ARG_USG		200
