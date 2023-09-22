@@ -79,7 +79,7 @@ void handle_error(int errno, char *opcode, unsigned int line, char *buffer);
 void handle_cerror(int errno, char *opcode, unsigned int line);
 void handle_uerror(int errno, unsigned int line);
 void handle_more_uerror(int errno, unsigned int line);
-void (*pick_func(char *s))(stack_t **, unsigned int);
+void (*pick_function(char *str))(stack_t **, unsigned int);
 unsigned int count_stack(stack_t *stack);
 void push(stack_t **stack, unsigned int param);
 void push_queue(stack_t **stack, unsigned int param);

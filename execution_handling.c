@@ -10,25 +10,25 @@
   */
 int handle_execution(char *op_code, char *op_parameter, unsigned int line, int x)
 {
-int status_op = 0;
 void (*oprt)(stack_t **, unsigned int);
+int state = 0;
 
 if (strcmp(op_code, "stack") == 0)
 return (METH_STACK);
 else if (strcmp(op_code, "queue") == 0)
 return (METH_QUEUE);
 
-oprt = pick_func(op_code);
+oprt = pick_function(op_code);
 if (oprt)
 {
 if (strcmp(op_code, "push") == 0)
 {
-status_op = check_push_param(op_parameter);
-if (status_op == ERR_PUSH_USG)
+state = check_push_param(op_parameter);
+if (state == ERR_PUSH_USG)
 return (ERR_PUSH_USG);
 
 if (x != 0 && x == METH_QUEUE)
-oprt = pick_func("push_queue");
+oprt = pick_function("push_queue");
 
 oprt(&head, atoi(op_parameter));
 }
