@@ -16,9 +16,9 @@ char *filename = NULL, *op_code = NULL, *op_parameter = NULL, *buffer = NULL;
 size_t length = 0;
 unsigned int no_line = 1;
 
-file_d = open_file(filename);
-check_args_num(argn);
 filename = args[1];
+check_args_num(argn);
+file_d = open_file(filename);
 
 while ((readed = getline(&buffer, &length, file_d)) != -1)
 {

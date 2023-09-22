@@ -20,7 +20,7 @@ void check_access_rights(char *filename)
 {
 if (access(filename, R_OK) == -1)
 {
-fprintf(stderr, "Error: Couldn't open file %s\n", filename);
+fprintf(stderr, "Error: Can't open file %s\n", filename);
 exit(EXIT_FAILURE);
 }
 }

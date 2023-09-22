@@ -15,7 +15,7 @@ file_d = fopen(filename, "r");
 
 if (!file_d)
 {
-fprintf(stderr, "Error: Couldn't open file %s\n", filename);
+fprintf(stderr, "Error: Can't open file %s\n", filename);
 exit(EXIT_FAILURE);
 }
 return (file_d);
